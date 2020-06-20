@@ -1,5 +1,8 @@
 # Role to install cassandra 3.11.x
 
+#### Prerequisites
+ - Java 1.8
+
 #### Installation
 
 Role can be found on galaxy - https://galaxy.ansible.com/suyash248/ansible_role_cassandra
