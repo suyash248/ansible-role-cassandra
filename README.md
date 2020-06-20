@@ -1,6 +1,8 @@
 # Role to install cassandra 3.11.x
 
 #### Installation
+
+Role can be found on galaxy - https://galaxy.ansible.com/suyash248/ansible_role_cassandra
 ```
 $ ansible-galaxy install suyash248.ansible_role_cassandra
 ```
