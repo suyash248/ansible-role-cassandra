@@ -1,0 +1,24 @@
+---
+- name: Stop service cassandra, if started
+  service:
+    name: cassandra
+    state: stopped
+
+- name: Backup default cassandra-rackdc.properties file to cassandra-rackdc.properties.bak
+  command: cp /etc/cassandra/cassandra-rackdc.properties /etc/cassandra/cassandra-rackdc.properties.bak
+
+- name: Creating cassandra-rackdc.properties
+  template: src=cassandra-rackdc.properties.j2 dest=/etc/cassandra/cassandra-rackdc.properties
+  tags: deploy
+
+- name: Backup default cassandra.yaml file to cassandra.yaml.bak
+  command: cp /etc/cassandra/cassandra.yaml /etc/cassandra/cassandra.yaml.bak
+
+- name: Creating cassandra.yaml
+  template: src=cassandra.yaml.j2 dest=/etc/cassandra/cassandra.yaml
+  tags: deploy
+
+- name: Start service cassandra, if not started
+  service:
+    name: cassandra
+    state: started

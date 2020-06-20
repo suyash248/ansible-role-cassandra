@@ -1,0 +1,19 @@
+---
+- name: 'Installing java 1.8'
+  hosts: cassandra_hosts
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  become: true
+  roles:
+    - role: ../../java 1.8
+      become: yes
+
+- name: 'Installing cassandra'
+  hosts: cassandra_hosts
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  roles:
+    - role: ../../
+      become: yes
+
+# ansible-playbook -i inventory --connection=local test.yml -K

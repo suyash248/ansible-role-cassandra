@@ -1,0 +1,4 @@
+---
+# defaults file for cassandra_3
+cluster_name: 'Cassandra cluster'
+endpoint_snitch: GossipingPropertyFileSnitch
