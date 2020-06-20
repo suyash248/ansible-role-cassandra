@@ -60,11 +60,14 @@ ansible-playbook -i inventory --connection=local test.yml -K
 
 #### References
 
-- Download & Install
+- Download & Install -
+
 https://cassandra.apache.org/download/
 
 - Single DC setup -
+
 https://docs.datastax.com/en/ddac/doc/datastax_enterprise/production/DDACsingleDCperWorkloadType.html
 
 - Multi DC setup -
+
 https://docs.datastax.com/en/ddac/doc/datastax_enterprise/production/DDACmultiDCperWorkloadType.html
