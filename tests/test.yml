@@ -5,7 +5,7 @@
     ansible_python_interpreter: /usr/bin/python3
   become: true
   roles:
-    - role: ../../java 1.8
+    - role: ../../java_1_8
       become: yes
 
 - name: 'Installing cassandra'

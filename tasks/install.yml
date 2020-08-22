@@ -1,16 +1,13 @@
 ---
 # tasks file for cassandra_3
 # https://cassandra.apache.org/download/
-#- name: "Add & update the Apache repository of Cassandra"
-#  command: "{{ item }}"
-#  with_items:
-#    - echo "deb https://downloads.apache.org/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
-#    - curl https://downloads.apache.org/cassandra/KEYS | sudo apt-key add -
-
+# echo "deb https://downloads.apache.org/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
 - name: "Add the Apache repository of Cassandra to /etc/apt/sources.list.d/cassandra.sources.list"
-  command: "{{ item }}"
-  with_items:
-    - echo "deb https://downloads.apache.org/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
+  apt_repository:
+    repo: deb https://downloads.apache.org/cassandra/debian 311x main
+    state: present
+    update_cache: no
+    filename: cassandra311
 
 - name: "Add & update the Apache repository of Cassandra"
   apt_key:

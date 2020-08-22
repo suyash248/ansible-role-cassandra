@@ -8,4 +8,4 @@ cassandra5 ansible_host=116.203.142.5 ansible_connection=ssh private_ip=116.203.
 cassandra6 ansible_host=116.203.142.6 ansible_connection=ssh private_ip=116.203.142.6 public_ip=116.203.142.6 dc=dc2 rack=rack1 seed=false
 
 [local]
-cassandra1 ansible_host=localhost ansible_connection=local private_ip=localhost public_ip=localhost dc=dc1 rack=rack1 seed=true
+local_cassandra_1 ansible_host=localhost ansible_connection=local private_ip=localhost public_ip=localhost dc=dc1 rack=rack1 seed=true

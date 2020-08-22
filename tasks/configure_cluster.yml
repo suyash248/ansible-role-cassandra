@@ -18,6 +18,26 @@
   template: src=cassandra.yaml.j2 dest=/etc/cassandra/cassandra.yaml
   tags: deploy
 
+- name: Backup default jvm.options file to cassandra.yaml.bak
+  command: cp /etc/cassandra/jvm.options /etc/cassandra/jvm.options.bak
+
+- name: Creating jvm.options
+  template: src=jvm.options.j2 dest=/etc/cassandra/jvm.options
+  tags: deploy
+
+- name: Backup default cassandra-topology.properties file to cassandra.yaml.bak
+  command: cp /etc/cassandra/cassandra-topology.properties /etc/cassandra/cassandra-topology.properties.bak
+
+- name: Creating cassandra-topology.properties
+  template: src=cassandra-topology.properties.j2 dest=/etc/cassandra/cassandra-topology.properties
+  tags: deploy
+
+- name: "Delete data from {{ cassandra_yaml['data_file_directories'] }}"
+  file:
+    state: absent
+    path: "{{ cassandra_yaml['data_file_directories'] }}/"
+  when: delete_data == 'yes'
+
 - name: Start service cassandra, if not started
   service:
     name: cassandra
